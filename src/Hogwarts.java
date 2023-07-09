@@ -50,20 +50,31 @@ public abstract class Hogwarts {
                 ", powerOfMagic=" + powerOfMagic +
                 ", transgressionDistance=" + transgressionDistance;
     }
-    private void printComparableStudent(Gryffindor bestStudent, Gryffindor worseStudent) {
-        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучше Гриффиндорец, чем "
+
+    private void printComparableMagic(Hogwarts bestStudent, Hogwarts worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " обладает бОльшей мощностью магии, чем "
                 + worseStudent.getName() + " " + worseStudent.getSurname());
     }
 
-    public void compareTo(Gryffindor other) {
-        int countThis = this.nobility + this.honor + this.bravery;
-        int countOther = other.nobility + other.honor + other.bravery;
-        if (countThis > countOther) {
-            printComparableStudent(this, other);
-        } else if (countThis < countOther) {
-            printComparableStudent(other, this);
+    private void printComparableDistance(Hogwarts bestStudent, Hogwarts worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " можен трансгрессировать на бОльшее расстояние, чем "
+                + worseStudent.getName() + " " + worseStudent.getSurname());
+    }
+
+    public void compareTo(Hogwarts other) {
+        if (this.powerOfMagic > other.powerOfMagic) {
+            printComparableMagic(this, other);
+        } else if (this.powerOfMagic < other.powerOfMagic) {
+            printComparableMagic(other, this);
         } else {
-            System.out.println("Студенты одинаково сильны");
+            System.out.println("Студенты одинаково сильны в магии");
+        }
+        if (this.transgressionDistance > other.transgressionDistance) {
+            printComparableDistance(this, other);
+        } else if (this.transgressionDistance < other.transgressionDistance) {
+            printComparableDistance(other, this);
+        } else {
+            System.out.println("Студенты могут перемещаться одинаково далеко");
         }
     }
 }

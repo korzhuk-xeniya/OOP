@@ -34,6 +34,9 @@ public class SortingHat {
         harry.compareTo(germiona);
         drako.compareTo(gregory);
         markus.compareTo(padma);
+        zahariya.compareTo(djastin);
+        grehem.compareTo(chzhou);
+        ron.compareTo(markus);
     }
 
 
