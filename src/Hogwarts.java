@@ -1,8 +1,15 @@
-public class hogwarts {
+public class Hogwarts {
     private String name;
     private String surname;
     private int powerOfMagic;
     private int transgressionDistance;
+
+    public Hogwarts(String name, String surname, int powerOfMagic, int transgressionDistance) {
+        this.name = name;
+        this.surname = surname;
+        this.powerOfMagic = powerOfMagic;
+        this.transgressionDistance = transgressionDistance;
+    }
 
     public String getName() {
         return name;
@@ -36,12 +43,7 @@ public class hogwarts {
         this.transgressionDistance = transgressionDistance;
     }
 
-    public hogwarts(String name, String surname, int powerOfMagic, int transgressionDistance) {
-        this.name = name;
-        this.surname = surname;
-        this.powerOfMagic = powerOfMagic;
-        this.transgressionDistance = transgressionDistance;
-    }
+
 }
 
 
