@@ -1,6 +1,6 @@
 public class Slytherin extends Hogwarts {
-    private  int trick;
-    private  int determination;
+    private int trick;
+    private int determination;
     private int ambition;
     private int resourcefulness;
     private int lustForPower;
@@ -14,43 +14,32 @@ public class Slytherin extends Hogwarts {
         this.lustForPower = lustForPower;
     }
 
-    public int getAmbition() {
-        return ambition;
+    @Override
+    public String toString() {
+        return "Slytherin{" +
+                super.toString() +
+                "trick=" + trick +
+                ", determination=" + determination +
+                ", ambition=" + ambition +
+                ", resourcefulness=" + resourcefulness +
+                ", lustForPower=" + lustForPower +
+                '}';
     }
 
-    public void setAmbition(int ambition) {
-        this.ambition = ambition;
+    private void printComparableStudent(Slytherin bestStudent, Slytherin worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучше Слизеринец, чем "
+                + worseStudent.getName() + " " + worseStudent.getSurname());
     }
 
-    public int getResourcefulness() {
-        return resourcefulness;
-    }
-
-    public void setResourcefulness(int resourcefulness) {
-        this.resourcefulness = resourcefulness;
-    }
-
-    public int getLustForPower() {
-        return lustForPower;
-    }
-
-    public void setLustForPower(int lustForPower) {
-        this.lustForPower = lustForPower;
-    }
-
-    public int getTrick() {
-        return trick;
-    }
-
-    public void setTrick(int trick) {
-        this.trick = trick;
-    }
-
-    public int getDetermination() {
-        return determination;
-    }
-
-    public void setDetermination(int determination) {
-        this.determination = determination;
+    public void compareTo(Slytherin other) {
+        int countThis = this.trick + this.determination + this.ambition + this.resourcefulness + this.lustForPower;
+        int countOther = other.trick + other.determination + other.ambition + other.resourcefulness + other.lustForPower;
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Студенты одинаково сильны");
+        }
     }
 }

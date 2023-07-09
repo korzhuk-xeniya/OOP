@@ -1,4 +1,4 @@
-public class Hogwarts {
+public abstract class Hogwarts {
     private String name;
     private String surname;
     private int powerOfMagic;
@@ -43,7 +43,29 @@ public class Hogwarts {
         this.transgressionDistance = transgressionDistance;
     }
 
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", powerOfMagic=" + powerOfMagic +
+                ", transgressionDistance=" + transgressionDistance;
+    }
+    private void printComparableStudent(Gryffindor bestStudent, Gryffindor worseStudent) {
+        System.out.println(bestStudent.getName() + " " + bestStudent.getSurname() + " лучше Гриффиндорец, чем "
+                + worseStudent.getName() + " " + worseStudent.getSurname());
+    }
 
+    public void compareTo(Gryffindor other) {
+        int countThis = this.nobility + this.honor + this.bravery;
+        int countOther = other.nobility + other.honor + other.bravery;
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(other, this);
+        } else {
+            System.out.println("Студенты одинаково сильны");
+        }
+    }
 }
 
 
